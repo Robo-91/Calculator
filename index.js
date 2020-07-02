@@ -39,6 +39,7 @@ function operate(a = parseFloat(numOne),operator, b = parseFloat(numTwo)) {
 	operateSign = "";
 	numTwo = "";
 	displayValue = [];
+	result = +result.toFixed(12);
 	return result;
 
 }	
