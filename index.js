@@ -34,28 +34,34 @@ function operate(a = parseFloat(numOne),operator, b = parseFloat(numTwo)) {
 	if(operator === `/`) {
 		result = divide(a,b);
 	}
+
 	numOne = "";
 	operateSign = "";
 	numTwo = "";
 	displayValue = [];
-	console.log(a);
-	console.log(operator);
-	console.log(b);
 	return result;
 
 }	
 
 container.addEventListener("click",function(e) {
+
 	if(e.target.textContent !== "C" && e.target.textContent !== "<-" && e.target.textContent !== "="){
 		displayValue.push(e.target.textContent);
-		// content.textContent = displayValue.join('');
 
 		if(e.target.className === "number" && !numTwo.length && !operateSign.length){
+			if (numOne.length >= 13) {
+				alert('Cannot add anymore characters!');
+				return null;
+			}
 			numOne = displayValue.slice(0).join('');
 			content.textContent = displayValue.slice(0).join('');
 		}
 		
 		if(e.target.className === "operator" && numOne.length && numTwo === ''){
+			if (operateSign.length >= 1) {
+				alert('Cannot add anymore operators!')
+				displayValue.pop();
+			}
 			operateSign = e.target.textContent;
 			content.textContent = displayValue.slice(displayValue.indexOf(operateSign));
 		}
@@ -64,6 +70,10 @@ container.addEventListener("click",function(e) {
 			numTwo = displayValue.slice(displayValue.indexOf(operateSign) + 1);
 			numTwo = numTwo.join('');
 			content.textContent = numTwo;
+			if (numTwo.length >= 13) {
+				alert('Cannot add anymore characters!');
+				return null;
+			}
 		}
 	}
 
