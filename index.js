@@ -41,28 +41,29 @@ function operate(a = parseFloat(numOne),operator, b = parseFloat(numTwo)) {
 	console.log(a);
 	console.log(operator);
 	console.log(b);
-	// result = result.fixed(10);
 	return result;
 
 }	
 
 container.addEventListener("click",function(e) {
-
 	if(e.target.textContent !== "C" && e.target.textContent !== "<-" && e.target.textContent !== "="){
 		displayValue.push(e.target.textContent);
-		content.textContent = displayValue.join('');
+		// content.textContent = displayValue.join('');
 
 		if(e.target.className === "number" && !numTwo.length && !operateSign.length){
-			numOne = display.textContent;
+			numOne = displayValue.slice(0).join('');
+			content.textContent = displayValue.slice(0).join('');
 		}
 		
-		if(e.target.className === "operator" && numOne.length && !numTwo.length){
+		if(e.target.className === "operator" && numOne.length && numTwo === ''){
 			operateSign = e.target.textContent;
+			content.textContent = displayValue.slice(displayValue.indexOf(operateSign));
 		}
 
-		if(numOne.length && operateSign.length){
+		if(numOne.length && operateSign.length && e.target.className === 'number'){
 			numTwo = displayValue.slice(displayValue.indexOf(operateSign) + 1);
 			numTwo = numTwo.join('');
+			content.textContent = numTwo;
 		}
 	}
 
@@ -88,6 +89,7 @@ clear.addEventListener("click", function(){
 	numOne = "";
 	operateSign = "";
 	numTwo = "";
+	result = 0;
 });
 
 backspace.addEventListener("click", function(){
@@ -97,6 +99,7 @@ backspace.addEventListener("click", function(){
 
 equal.addEventListener("click", function(){
 	operate();
+
 	content.textContent = result;
 
 	if(operateSign === "/" && numTwo === '0'){
