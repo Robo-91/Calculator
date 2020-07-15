@@ -46,7 +46,7 @@ function operate(a = parseFloat(numOne),operator, b = parseFloat(numTwo)) {
 
 container.addEventListener("click",function(e) {
 
-	if(e.target.textContent !== "C" && e.target.textContent !== "<-" && e.target.textContent !== "="){
+	if(e.target.textContent !== "C" && e.target.textContent !== "<" && e.target.textContent !== "="){
 		displayValue.push(e.target.textContent);
 
 		if(e.target.className === "number" && !numTwo.length && !operateSign.length){
@@ -105,6 +105,7 @@ clear.addEventListener("click", function(){
 
 backspace.addEventListener("click", function(){
 	displayValue.pop();
+	console.log(displayValue);
 	content.textContent = displayValue.join('');
 });
 
