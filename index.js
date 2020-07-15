@@ -105,9 +105,21 @@ clear.addEventListener("click", function(){
 
 backspace.addEventListener("click", function(){
 	displayValue.pop();
-	content.textContent = displayValue.join('');
-	if(operateSign) {
+	// content.textContent = displayValue.join('');
+	if (numOne.length && !operateSign.length && !numTwo.length) {
+		numOne = numOne.slice(0, -1);
+		content.textContent = numOne;
+	}
+	if (operateSign.length && !numTwo.length) {
 		operateSign = '';
+		content.textContent = numOne;
+	}
+	if (numOne.length && operateSign.length && numTwo.length) {
+		numTwo = numTwo.slice(0, -1);
+		content.textContent = numTwo;
+	}
+	if (!numTwo.length && operateSign.length && numOne.length) {
+		content.textContent = operateSign;
 	}
 });
 
