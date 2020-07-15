@@ -106,6 +106,9 @@ clear.addEventListener("click", function(){
 backspace.addEventListener("click", function(){
 	displayValue.pop();
 	content.textContent = displayValue.join('');
+	if(operateSign) {
+		operateSign = '';
+	}
 });
 
 equal.addEventListener("click", function(){
