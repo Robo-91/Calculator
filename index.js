@@ -105,7 +105,6 @@ clear.addEventListener("click", function(){
 
 backspace.addEventListener("click", function(){
 	displayValue.pop();
-	console.log(displayValue);
 	content.textContent = displayValue.join('');
 });
 
