@@ -39,7 +39,7 @@ function operate(a = parseFloat(numOne),operator, b = parseFloat(numTwo)) {
 	operateSign = "";
 	numTwo = "";
 	displayValue = [];
-	result = +result.toFixed(12);
+	result = +result.toFixed(10);
 	return result;
 
 }	
@@ -50,7 +50,7 @@ container.addEventListener("click",function(e) {
 		displayValue.push(e.target.textContent);
 
 		if(e.target.className === "number" && !numTwo.length && !operateSign.length){
-			if (numOne.length >= 13) {
+			if (numOne.length >= 11) {
 				alert('Cannot add anymore characters!');
 				return null;
 			}
@@ -71,7 +71,7 @@ container.addEventListener("click",function(e) {
 			numTwo = displayValue.slice(displayValue.indexOf(operateSign) + 1);
 			numTwo = numTwo.join('');
 			content.textContent = numTwo;
-			if (numTwo.length >= 13) {
+			if (numTwo.length >= 11) {
 				alert('Cannot add anymore characters!');
 				return null;
 			}
