@@ -10,10 +10,10 @@
 #display {
 	height: 100px;
 	width: 450px;
-	font-size: 55px;
+	font-size: 80px;
 	text-align: left;
 	z-index: 1;
-	font-family: 'Roboto';
+	font-family: 'digital-7';
 }
 
 #container1 {
@@ -47,6 +47,8 @@ button {
 
 .number {
 	background: #f07067;
+	font-family: 'digital-7';
+	font-size: 36px;
 }
 
 .operator {
