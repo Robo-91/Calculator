@@ -15,13 +15,13 @@ The purpose for creating this project was to learn how to use some common string
 ## Features
 
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Use of the grid system in CSS to create the layout for the calculator.
+* Use of DOM manipulation for the user to make calculations.
+* Use of various string/array functions available in javascript (slice, pop, join, to name a few).
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Make the page responsive using Media Queries.
+* Clean up the output from extending past the screen.
 
 ## Getting Started
 
